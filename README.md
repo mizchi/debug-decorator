@@ -1,34 +1,37 @@
-# Injector for typescript decorator
+# debug decorator
 
 ## Install
 
 ```
-npm install @mizchi/injector --save
+npm install @mizchi/debug-decorator --save
 ```
 
 ## Usage
 
 ```js
-const createInjector = require('@mizchi/injector');
-const rootInjector = createInjector();
-const injector = rootInjector.createChildInjector(); // can search parents
-class A {}
-class B {}
+class X {
+  @debug
+  get name() {
+    return 'xxx';
+  }
 
-injector.mapSingleton(A);
-injector.mapValue(B, new B);
-// injector.unmap(B); // to remove
-@injector({
-  a: A,
-  b: B
-})
-class T {
-  a: A;
-  b: B;
+  @debug
+  square(n: number){
+    return n * n;
+  }
 }
-const t = new T();
-assert.ok(t.a instanceof A);
-assert.ok(t.b instanceof B);
+const x = new X;
+x.name;
+const r = x.square(2);
+```
+
+output
+
+```
+debug: get name - xxx
+debug: call square
+        [args] 2
+        [return] 4        
 ```
 
 ## LICENSE

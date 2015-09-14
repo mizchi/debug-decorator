@@ -1,10 +1,10 @@
 {
-  "name": "@mizchi/injector",
+  "name": "@mizchi/debug-decorator",
   "version": "0.1.0",
-  "description": "Injector for Decorator",
-  "main": "lib/injector.js",
+  "description": "Debug for Decorator",
+  "main": "lib/debug.js",
   "scripts": {
-    "prepublish": "babel -o lib/injector.js src/injector.js",
+    "prepublish": "babel -o lib/debug.js src/debug.js",
     "test": "$(npm bin)/mocha --compilers js:espower-babel/guess test/**/*_test.js"
   },
   "author": "mizchi",
